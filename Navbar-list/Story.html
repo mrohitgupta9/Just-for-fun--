@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gaon ka Swaad | Premium Desi Foods</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind Config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            soil: "#7A3E1D",
+            wheat: "#F3E2B3",
+            gud: "#C68642",
+            amazon: "#FF9900"
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="bg-[#f6f6f6] text-gray-800">
+
+<!-- ================= NAVBAR ================= -->
+<header class="sticky top-0 z-50 bg-white shadow">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex items-center justify-between h-16">
+
+      <!-- LOGO -->
+      <div class="flex items-center">
+        <a href="../index.html" class="flex items-center gap-3 hover:opacity-90 transition duration-300">
+          <!-- Logo Circle -->
+          <div class="w-9 h-9 rounded-full bg-soil flex items-center justify-center text-white font-bold text-lg">
+            GS
+          </div>
+          <!-- Brand Name -->
+          <span class="text-xl font-extrabold text-soil">Gaon ka Swaad</span>
+        </a>
+      </div>
+
+      <!-- DESKTOP MENU -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium relative">
+
+        <!-- PRODUCTS DROPDOWN / MEGA MENU -->
+        <div class="relative group">
+          <button class="flex items-center gap-1 hover:text-soil font-semibold">
+            Products ▾
+          </button>
+          <!-- Mega Menu -->
+        <div class="absolute top-full left-0 w-[28rem] bg-white shadow-lg rounded-xl p-6 opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300">
+          <div class="grid grid-cols-2 gap-6">
+
+            <!-- Column 1: Aata -->
+            <div class="flex flex-col gap-2">
+              <h4 class="font-bold text-lg mb-2 border-b pb-1">Aata</h4>
+              <a href="#products" class="p-2 rounded-lg hover:bg-gray-50 transition">Chakki Aata</a>
+              <a href="#products" class="p-2 rounded-lg hover:bg-gray-50 transition">Multigrain Aata</a>
+              <a href="#products" class="p-2 rounded-lg hover:bg-gray-50 transition">Wheat Flour Combo</a>
+              <a href="#products" class="p-2 rounded-lg hover:bg-gray-50 transition">Premium Aata Pack</a>
+            </div>
+
+            <!-- Column 2: Gud -->
+            <div class="flex flex-col gap-2">
+              <h4 class="font-bold text-lg mb-2 border-b pb-1">Gud</h4>
+              <a href="#products" class="p-2 rounded-lg hover:bg-gray-50 transition">Natural Desi Gud</a>
+              <a href="#products" class="p-2 rounded-lg hover:bg-gray-50 transition">Organic Gud Powder</a>
+              <a href="#products" class="p-2 rounded-lg hover:bg-gray-50 transition">Gud Gift Pack</a>
+              <a href="#products" class="p-2 rounded-lg hover:bg-gray-50 transition">Premium Gud Combo</a>
+            </div>
+
+          </div>
+        </div>
+          
+        </div>
+
+        <a href="features.html" class="hover:text-soil">Why Us</a>
+        <a href="Story.html" class="hover:text-soil">Our Story</a>
+        <a href="Reviews.html" class="hover:text-soil">Reviews</a>
+        <a href="Contact.html" class="hover:text-soil">Contact</a>
+      </nav>
+
+      <!-- CTA -->
+      <div class="hidden md:flex">
+        <a href="#products" class="bg-soil text-white px-5 py-2 rounded-lg text-sm font-semibold hover:opacity-90">
+          Buy on Amazon
+        </a>
+      </div>
+
+      <!-- MOBILE BUTTON -->
+      <button onclick="toggleMobileMenu()" class="md:hidden text-2xl">
+        ☰
+      </button>
+    </div>
+  </div>
+
+  <!-- MOBILE SLIDE MENU -->
+  <div id="mobileMenu" class="fixed top-0 right-0 h-full w-64 bg-white shadow-xl transform translate-x-full transition-transform duration-300 z-50">
+    <div class="flex justify-between items-center px-6 py-4 border-b">
+      <span class="font-bold text-soil text-lg">Menu</span>
+      <button onclick="toggleMobileMenu()" class="text-2xl">&times;</button>
+    </div>
+    <nav class="flex flex-col gap-4 px-6 py-6">
+      <!-- Products collapsible -->
+      <div>
+        <button onclick="toggleSubmenu()" class="w-full flex justify-between items-center font-semibold text-gray-700">
+          Products ▾
+        </button>
+        <div id="mobileSubmenu" class="hidden flex flex-col mt-2 gap-2 pl-4 text-gray-700">
+          <a href="#products" class="flex items-center gap-2">🌾 Chakki Aata</a>
+          <a href="#products" class="flex items-center gap-2">🥖 Multigrain Aata</a>
+          <a href="#products" class="flex items-center gap-2">🍯 Natural Desi Gud</a>
+          <a href="#products" class="flex items-center gap-2">🟤 Organic Gud Powder</a>
+        </div>
+      </div>
+
+      <a href="features.html" class="hover:text-soil">Why Us</a>
+      <a href="Story.html" class="hover:text-soil">Our Story</a>
+      <a href="Reviews.html" class="hover:text-soil">Reviews</a>
+      <a href="Contact.html" class="hover:text-soil">Contact</a>
+      <a href="#products" class="mt-4 bg-soil text-white text-center py-2 rounded-lg font-semibold">
+        Buy on Amazon
+      </a>
+    </nav>
+  </div>
+</header>
+
+<!-- ================= NAVBAR SCRIPT ================= -->
+<script>
+function toggleMobileMenu() {
+  const menu = document.getElementById('mobileMenu');
+  if(menu.classList.contains('translate-x-full')) {
+    menu.classList.remove('translate-x-full');
+  } else {
+    menu.classList.add('translate-x-full');
+  }
+}
+
+function toggleSubmenu() {
+  const submenu = document.getElementById('mobileSubmenu');
+  submenu.classList.toggle('hidden');
+}
+</script>
+
+<!-- ================= HERO ================= -->
+<section class="relative bg-gradient-to-br from-[#fffaf2] to-[#f3e2b3] py-28 px-6 text-center">
+  <h1 class="text-4xl md:text-5xl font-extrabold text-[#7A3E1D] mb-4">Our Story</h1>
+  <p class="text-gray-700 max-w-2xl mx-auto text-lg">
+    From humble beginnings in the villages of India, we bring you pure, traditional Aata and Gud — crafted with love, care, and trust.
+  </p>
+</section>
+
+<!-- ================= STORY TIMELINE ================= -->
+<section id="story" class="max-w-7xl mx-auto px-6 py-16">
+  
+  <div class="space-y-16">
+    
+    <!-- STORY BLOCK 1 -->
+    <div class="flex flex-col lg:flex-row items-center gap-8 story-card bg-white p-8 rounded-2xl shadow hover:shadow-2xl transition">
+      <div class="lg:w-1/2">
+        <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=800&q=60" alt="Village Wheat" class="rounded-2xl shadow-md w-full object-cover h-64 lg:h-80">
+      </div>
+      <div class="lg:w-1/2">
+        <h3 class="text-2xl font-extrabold text-[#7A3E1D] mb-4">Humble Beginnings</h3>
+        <p class="text-gray-700 text-lg leading-relaxed">
+          It all started in small villages where farmers traditionally ground wheat & sugarcane. Inspired by their dedication, we vowed to deliver pure, chemical-free products to every home.
+        </p>
+      </div>
+    </div>
+
+    <!-- STORY BLOCK 2 -->
+    <div class="flex flex-col lg:flex-row-reverse items-center gap-8 story-card bg-white p-8 rounded-2xl shadow hover:shadow-2xl transition">
+      <div class="lg:w-1/2">
+        <img src="https://images.unsplash.com/photo-1587049352851-8d4e89133924?auto=format&fit=crop&w=800&q=60" alt="Jaggery Production" class="rounded-2xl shadow-md w-full object-cover h-64 lg:h-80">
+      </div>
+      <div class="lg:w-1/2">
+        <h3 class="text-2xl font-extrabold text-[#7A3E1D] mb-4">Tradition Meets Modernity</h3>
+        <p class="text-gray-700 text-lg leading-relaxed">
+          We preserve the traditional stone-ground process while maintaining modern hygiene and packaging standards — ensuring you receive products that are both authentic and safe.
+        </p>
+      </div>
+    </div>
+
+    <!-- STORY BLOCK 3 -->
+    <div class="flex flex-col lg:flex-row items-center gap-8 story-card bg-white p-8 rounded-2xl shadow hover:shadow-2xl transition">
+      <div class="lg:w-1/2">
+        <img src="https://images.unsplash.com/photo-1627485937980-221c88ac04a8?auto=format&fit=crop&w=800&q=60" alt="Delivery" class="rounded-2xl shadow-md w-full object-cover h-64 lg:h-80">
+      </div>
+      <div class="lg:w-1/2">
+        <h3 class="text-2xl font-extrabold text-[#7A3E1D] mb-4">From Our Hands to Yours</h3>
+        <p class="text-gray-700 text-lg leading-relaxed">
+          Today, our products reach homes across India through trusted delivery partners like Amazon — delivering freshness, tradition, and trust in every pack.
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="py-16 px-6 bg-[#7A3E1D]/10 text-center">
+  <h2 class="text-3xl md:text-4xl font-extrabold text-[#7A3E1D] mb-6">Experience Authenticity</h2>
+  <p class="text-gray-700 max-w-2xl mx-auto mb-8 text-lg">
+    Join thousands of customers who trust Gaon ka Swaad for traditional, high-quality Aata & Gud.
+  </p>
+  <a href="#products" class="bg-[#7A3E1D] text-white px-8 py-3 rounded-xl font-semibold text-lg hover:opacity-90 transition">
+    Shop Now on Amazon
+  </a>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="bg-gray-800 text-white mt-24">
+  <div class="max-w-7xl mx-auto px-6 py-16 grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
+    <div>
+      <h3 class="text-2xl font-extrabold mb-4">Gaon ka Swaad</h3>
+      <p class="text-sm text-[#e6dccf] leading-relaxed">
+        Pure desi Aata aur Gud — directly from village farmers, hygienically packed, and delivered through trusted platforms.
+      </p>
+    </div>
+    <div>
+      <h4 class="font-semibold text-lg mb-4">Quick Links</h4>
+      <ul class="space-y-2 text-sm text-[#e6dccf]">
+        <li><a href="#products" class="hover:underline">Products</a></li>
+        <li><a href="Story.html" class="hover:underline">Our Story</a></li>
+        <li><a href="#" class="hover:underline">Buy on Amazon</a></li>
+        <li><a href="Contact.html" class="hover:underline">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-semibold text-lg mb-4">Our Promise</h4>
+      <ul class="space-y-2 text-sm text-[#e6dccf]">
+        <li>✔ Stone-Ground Chakki Process</li>
+        <li>✔ No Chemicals or Preservatives</li>
+        <li>✔ Hygienic Food-Grade Packaging</li>
+        <li>✔ Amazon Fulfilled Delivery</li>
+      </ul>
+    </div>
+    <div id="contact">
+      <h4 class="font-semibold text-lg mb-4">Contact Us</h4>
+      <p class="text-sm text-[#e6dccf] mb-2">📞 +91-XXXXXXXXXX</p>
+      <p class="text-sm text-[#e6dccf] mb-4">📧 support@gaonkaswaad.in</p>
+      <div class="flex gap-3">
+        <a href="#" class="bg-[#3b2a21] px-3 py-2 rounded hover:bg-[#4a352a]">WhatsApp</a>
+        <a href="#" class="bg-[#3b2a21] px-3 py-2 rounded hover:bg-[#4a352a]">Instagram</a>
+        <a href="#" class="bg-[#3b2a21] px-3 py-2 rounded hover:bg-[#4a352a]">Facebook</a>
+      </div>
+    </div>
+  </div>
+  <div class="border-t border-[#4a352a] py-6 text-center text-sm text-[#d9cfc2]">
+    © 2026 <span class="font-semibold">Gaon ka Swaad</span>. All rights reserved.
+  </div>
+</footer>
+
+</body>
+</html>
